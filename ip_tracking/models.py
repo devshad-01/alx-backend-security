@@ -1,3 +1,9 @@
+class SuspiciousIP(models.Model):
+    ip_address = models.GenericIPAddressField()
+    reason = models.CharField(max_length=255)
+
+    def __str__(self):
+        return f"Suspicious: {self.ip_address} ({self.reason})"
 from django.db import models
 
 class RequestLog(models.Model):
